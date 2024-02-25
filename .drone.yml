@@ -9,8 +9,8 @@ steps:
       pgconn:
         from_secret: pgconn
     commands: 
-      - echo "pgconn=$pgconn" >> api/appsettings.test.json
-      - cat api/appsettings.test.json
+      - echo "pgconn=$pgconn" >> calculator/appsettings.test.json
+      - cat calculator/appsettings.test.json
       - dotnet sonarscanner begin 
         /k:"easv-devops_KT.calculator_AY3gpwBlEVvRW2O60EKq"
         /d:sonar.host.url="http://sonar.setgo.dk:9000"  
