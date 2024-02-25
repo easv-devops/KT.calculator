@@ -1,0 +1,13 @@
+﻿version: '3'
+
+services:
+  calculator-app:
+    build:
+      context: .
+      dockerfile: calculator/Dockerfile
+    stdin_open: true
+    tty: true
+    environment:
+      - pgconn=postgres://${DB_NAME}:${DB_PASSWORD}@abul.db.elephantsql.com:5432/${DB_NAME}
+    ports:
+      - "8080:80"
