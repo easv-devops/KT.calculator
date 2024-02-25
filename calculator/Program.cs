@@ -23,8 +23,7 @@ public class Calculator : ICalculator
 
     private void InitializeConnectionString()
     {
-        var rawConnectionString =
-            "postgres://qvhvhmbj:88bAt903U_RrV7rdl642k8j_4xk3J_yR@abul.db.elephantsql.com/qvhvhmbj"; //Environment.GetEnvironmentVariable("pgconn");
+        var rawConnectionString = Environment.GetEnvironmentVariable("pgconn");
             var uri = new Uri(rawConnectionString);
             var properlyFormattedConnectionString = string.Format(
                 "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=false;",
