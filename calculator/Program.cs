@@ -25,8 +25,6 @@ public class Calculator : ICalculator
     {
         var rawConnectionString =
             "postgres://qvhvhmbj:88bAt903U_RrV7rdl642k8j_4xk3J_yR@abul.db.elephantsql.com/qvhvhmbj"; //Environment.GetEnvironmentVariable("pgconn");
-        try
-        {
             var uri = new Uri(rawConnectionString);
             var properlyFormattedConnectionString = string.Format(
                 "Server={0};Database={1};User Id={2};Password={3};Port={4};Pooling=false;",
@@ -38,11 +36,6 @@ public class Calculator : ICalculator
             DataSource =
                 new NpgsqlDataSourceBuilder(properlyFormattedConnectionString).Build();
             DataSource.OpenConnection().Close();
-        }
-        catch (Exception e)
-        {
-            throw new Exception("Didnt get connection to database", e);
-        }
     }
     
 
@@ -59,14 +52,7 @@ public class Calculator : ICalculator
 
             using (var conn = DataSource.OpenConnection())
             {
-                try
-                {
                     conn.Execute(checkTableCommand);
-                }
-                catch (Exception e)
-                {
-                    throw new Exception("Failed to rebuild the schema in database", e);
-                }
             }
         }
 
