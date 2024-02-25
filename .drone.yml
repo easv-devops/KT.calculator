@@ -4,7 +4,7 @@ name: calculator
 
 steps:
   - name: code-analysis
-    image: bouldundeasv/dotnet-sdk-with-java
+    image: boulundeasv/dotnet-sdk-with-java
     environment: 
       pgconn:
         from_secret: pgconn
