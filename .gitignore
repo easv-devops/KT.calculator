@@ -1,0 +1,7 @@
+**/.idea
+**/bin
+**/obj
+.env
+
+dotnet.sln
+dotnet.sln.Dotsettings.user
